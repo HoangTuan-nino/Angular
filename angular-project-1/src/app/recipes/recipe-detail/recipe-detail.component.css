@@ -1,0 +1,162 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  max-width: none;
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  flex: 1;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.navbar {
+  width: 100%;
+  background-color: #d7d9dd;
+  height: 80px;
+}
+.nav-item {
+  margin-left: 100px;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  z-index: 1;
+  justify-content: center;
+}
+.logo-box {
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+}
+.logo {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80%;
+  height: 100%;
+  z-index: 100;
+  justify-content: center;
+  margin-top: 10px;
+}
+.title div{
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+    font-size: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+    width: 100%;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+.ingredient {
+  display: flex;
+  flex-direction: row;
+  flex: 0.3;
+}
+.ingredient-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.list-group1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+.ingredient-group-item {
+  display: flex;
+  flex-direction: row;
+}
+.ingredient-name {
+  display: flex;
+  border: 1px solid #d7d9dd;
+  height: 50px;
+  flex: 80;
+  align-items: center;
+  padding: 5px;
+}
+.ingredient-amount {
+  display: flex;
+  border: 1px solid #d7d9dd;
+  height: 50px;
+  flex: 20;
+  align-items: center;
+  padding: 5px;
+}
+
+.time-level-rating-description {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px 0 20px;
+  flex: 0.4;
+}
+.image {
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  height: 90%;
+  box-shadow: 0 0 5px black;
+}
+.time-level-rating {
+  display: flex;
+}
+.description {
+  display: flex;
+  flex-direction: row;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  margin-right: auto;
+  line-height: 10px;
+}
+.ingredient-header {
+  display: flex;
+}
+.ingredient-header-item {
+  display: flex;
+  flex: 1;
+}
+.level {
+  display: flex;
+  flex-direction: column;
+  line-height: 10px;
+  margin: auto;
+}
+.rating {
+  display: flex;
+  flex-direction: column;
+  line-height: 10px;
+  margin-left: auto;
+}
+.rating-star {
+  display: flex;
+  flex-direction: row;
+}
+.checked {
+  color: green;
+}

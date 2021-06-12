@@ -1,0 +1,168 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style="color: aliceblue">Dashboard</h1>
+    <div class="d-flex">
+      <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="btn btn-success"
+      >
+        Add recipe
+      </button>
+    </div>
+  </div>
+</nav>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Category ID</th>
+      <th scope="col">Recipe ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Time</th>
+      <th scope="col">Level</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datas">
+      <td scope="col">{{data.categoryId}}</td>
+      <td scope="col">{{data.id}}</td>
+      <td scope="col">{{data.title}}</td>
+      <td scope="col">{{data.description}}</td>
+      <td scope="col">{{data.time}}</td>
+      <td scope="col">{{data.level}}</td>
+      <td scope="col">{{data.imgUrl}}</td>
+      <td style="display: flex; flex-direction: column;" >
+        <button style="color: aliceblue; margin-bottom: 5px;" class="btn btn-info">Edit</button>
+        <button class="btn btn-danger mx-3" (click)="deleteRecipe(data)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recipe Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="categoryId" class="form-label"
+              >Category ID</label
+            >
+            <input
+              type="text"
+              placeholder="1: Cake, 2: Food"
+              class="form-control"
+              id="categoryId"
+              aria-describedby="emailHelp"
+              formControlName="categoryId"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              formControlName="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label"
+              >Desciption</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              formControlName="description"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="imgUrl" class="form-label">Image</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imgUrl"
+              formControlName="imgUrl"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Time</label>
+            <input
+              type="text"
+              class="form-control"
+              id="time"
+              formControlName="time"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Level</label>
+            <input
+              type="text"
+              class="form-control"
+              id="level"
+              formControlName="level"
+            />
+          </div>         
+          <div class="row">
+            <label for="ingredient" class="form-label"
+              >Ingredient</label
+            >
+            <div class="col-sm-8">
+              <input
+                id="ingredient"
+                type="text"
+                class="form-control"
+                formControlName="ingredient"
+              />
+            </div>
+            <div class="col-sm-2">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="amount"
+              />
+            </div>
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-success">
+                Add Ingredient
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary"(click)="addRecipeDetails()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

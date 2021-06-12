@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <img
+        src="assets/favicon.png"
+        alt="logo"
+        class="logo"
+        routerLink="/header"
+      />
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/products/1"
+              >Cake Recipes<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/products/2"
+              >Food Recipes<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="list-group">
+      <app-recipe-item
+        *ngFor="let recipe of recipes; let i = index"
+        [recipe]="recipe"
+        [index]="i"
+      ></app-recipe-item>
+      <!-- <div class="add-product" (click)="onAddRecipe()">+</div> -->
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-sm-12">
+    <div class="list-group">
+      <app-recipe-item
+        *ngFor="let recipeItem of recipes, let i = index"
+        [recipe]="recipeItem"
+        [index] = "i"
+      ></app-recipe-item>
+    </div>
+  </div>
+</div> -->

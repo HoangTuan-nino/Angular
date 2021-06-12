@@ -1,0 +1,50 @@
+<div class="container">
+  <div
+    class="item"
+    style="cursor: pointer"
+    [routerLink]="routeSelected"
+    routerLinkActive="active"
+  >
+    <div class="image-box">
+      <img class="image" [src]="recipe.imgUrl" alt="{{ recipe.title }}" />
+      <div class="detail">Detail</div>
+    </div>
+    <div class="title">
+      <h4>{{ recipe.title }}</h4>
+    </div>
+    <div></div>
+  </div>
+  <!-- <div class="delette-edit-button">
+    <button class="btn btn--white">Edit</button>
+    <button class="btn btn--white btn--delete" (click)="onDeleteRecipe(id)">Delete</button>
+  </div> -->
+</div>
+
+<!-- <a
+  style="cursor: pointer"
+  [routerLink]="recipe.id"
+  routerLinkActive="active"
+  class="
+    list-group-item list-group-item-action
+    d-flex
+    justify-content-between
+    align-items-center
+  "
+  (click)="onSelected()"
+>
+  <div>
+    <h4 class="list-group-item-heading">
+      {{ recipe.name }}
+    </h4>
+    <p class="list-group-item-text">
+      {{ recipe.description }}
+    </p>
+  </div>
+  <span>
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      style="max-height: 75px"
+    />
+  </span>
+</a> -->
