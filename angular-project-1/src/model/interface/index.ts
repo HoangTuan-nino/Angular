@@ -12,7 +12,7 @@ export class IRecipe {
   level: string;
   categoryId: number;
 }
-export interface ICategory {
+export class ICategory {
   categoryId: number;
   categoryIcon: string;
   categoryName: string;

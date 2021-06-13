@@ -6,11 +6,11 @@ import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class RecipeApi {
-  @Input() category: ICategory;
+  @Input() recipe: IRecipe;
   constructor(private http: HttpClient) {}
   private url = 'http://localhost:3000';
   createRecipe(data: any): Observable<any> {
-    const productUrl = `${this.url}/products`;
+    const productUrl = `${this.url}/create`;
     return this.http.post<any>(productUrl, data).pipe(
       map((res: any) => {
         return res;
@@ -34,8 +34,8 @@ export class RecipeApi {
     );
   }
   public updateRecipe(data: any, id: number): Observable<any> {
-    const productUrl = `${this.url}/products`;
-    return this.http.put<any>(productUrl + id, data).pipe(
+    const productUrl = `${this.url}/update/${id}`;
+    return this.http.put<any>(productUrl, data).pipe(
       map((res: any) => {
         return res;
       })
@@ -43,7 +43,11 @@ export class RecipeApi {
   }
   public deleteRecipe(id: number): Observable<any> {
     const productUrl = `${this.url}/products/${id}`;
-    return this.http.delete<any>(productUrl);
+    return this.http.delete(productUrl).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   // constructor(private httpService: HttpService) {}

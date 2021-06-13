@@ -28,16 +28,27 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of datas">
-      <td scope="col">{{data.categoryId}}</td>
-      <td scope="col">{{data.id}}</td>
-      <td scope="col">{{data.title}}</td>
-      <td scope="col">{{data.description}}</td>
-      <td scope="col">{{data.time}}</td>
-      <td scope="col">{{data.level}}</td>
-      <td scope="col">{{data.imgUrl}}</td>
-      <td style="display: flex; flex-direction: column;" >
-        <button style="color: aliceblue; margin-bottom: 5px;" class="btn btn-info">Edit</button>
-        <button class="btn btn-danger mx-3" (click)="deleteRecipe(data)">Delete</button>
+      <td scope="col">{{ data.categoryId }}</td>
+      <td scope="col">{{ data._id }}</td>
+      <td scope="col">{{ data.title }}</td>
+      <td scope="col">{{ data.description }}</td>
+      <td scope="col">{{ data.time }}</td>
+      <td scope="col">{{ data.level }}</td>
+      <td scope="col">{{ data.imgUrl }}</td>
+      <td style="display: flex; flex-direction: column">
+        <button
+          style="color: aliceblue; margin-bottom: 5px"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-info"
+          (click)="editRecipeDetail(data)"
+        >
+          Edit
+        </button>
+        <button class="btn btn-danger mx-3" (click)="deleteRecipe(data)">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>
@@ -65,9 +76,7 @@
       <div class="modal-body">
         <form [formGroup]="formValue">
           <div class="mb-3">
-            <label for="categoryId" class="form-label"
-              >Category ID</label
-            >
+            <label for="categoryId" class="form-label">Category ID</label>
             <input
               type="text"
               placeholder="1: Cake, 2: Food"
@@ -87,9 +96,7 @@
             />
           </div>
           <div class="mb-3">
-            <label for="description" class="form-label"
-              >Desciption</label
-            >
+            <label for="description" class="form-label">Desciption</label>
             <input
               type="text"
               class="form-control"
@@ -123,45 +130,69 @@
               id="level"
               formControlName="level"
             />
-          </div>         
-          <div class="row">
-            <label for="ingredient" class="form-label"
-              >Ingredient</label
-            >
-            <div class="col-sm-8">
-              <input
-                id="ingredient"
-                type="text"
-                class="form-control"
-                formControlName="ingredient"
-              />
-            </div>
-            <div class="col-sm-2">
-              <input
-                type="number"
-                class="form-control"
-                formControlName="amount"
-              />
-            </div>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-danger">X</button>
-            </div>
           </div>
-          <hr />
-          <div class="row">
-            <div class="col-sm-12">
-              <button type="button" class="btn btn-success">
-                Add Ingredient
-              </button>
+          <div class="col-sm-12" formArrayName="ingredient">
+            <div
+              class="row"
+              *ngFor="let ingredientCtrl of controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div class="col-sm-7">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                />
+              </div>
+              <div class="col-sm-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="amount"
+                />
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-danger">X</button>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-12">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  (click)="onAddIngredient()"
+                >
+                  Add Ingredient
+                </button>
+              </div>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button
+          id="cancel"
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
           Close
         </button>
-        <button type="button" class="btn btn-primary"(click)="addRecipeDetails()">Add</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addRecipeDetails()"
+        >
+          Add
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateRecipeDetails()"
+        >
+          Update
+        </button>
       </div>
     </div>
   </div>
